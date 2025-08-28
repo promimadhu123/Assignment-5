@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joruri Seba</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+
+       
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+</style>
+<body class="bg-white text-black flex flex-col items-center">
+
+    
+    <header class="w-full bg-[#f0f0f0] text-black p-4 flex justify-between items-center fixed top-0 z-50 shadow-lg">
+        <div class="flex items-center space-x-2">
+           
+            <img src="assets/logo.png" alt="Emergency Service Icon" class="w-6 h-6 rounded-full">
+            <span class="text-xl font-semibold">Emergency Service</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-1">
+                <span class="text-red-500">❤️</span>
+                <span class="text-sm">0</span>
+            </div>
+            <div class="flex items-center space-x-1">
+                <span class="text-yellow-500">💰</span>
+                <span class="text-sm">100</span>
+            </div>
+            <button class="bg-[#14C179] text-white px-4 py-1 rounded-full text-sm font-medium hover:bg-[#12a366] transition">2 Copy</button>
+        </div>
+    </header>
+    <main class="w-full max-w-7xl pt-24 pb-8 px-4 flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8">
+       
+        <div class="flex-1">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl sm:text-4xl font-bold text-black">Emergency Service Directory</h1>
+                <p class="text-[#666666] mt-2 text-sm sm:text-base">Government Emergency Services at Your Fingertip - A Project by Government of the People's Republic of Bangladesh</p>
+            </div>
+            <div id="service-directory" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                           
+                            <img src="assets/emergency.png" alt="National Emergency Number Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                   
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">National Emergency Number</h3>
+                        <p class="text-sm text-gray-500">All</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">999</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                           
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                   viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                             class="w-5 h-5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                       d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                           016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                            2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                                               2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                                                             0 018.25 9.75z" />
+                                                                               </svg>
+
+                            <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                          <a href="tel:999" class="btn btn-primary">📞</a>
+                          <span>Call</span>
+                        </button>
+                        <span class="copy-message hidden text-green-500 text-xs absolute -bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+
+              
+                <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                           
+                            <img src="assets/police.png" alt="Police Helpline Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">Police Helpline Number</h3>
+                        <p class="text-sm text-gray-500">Police</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">999</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                         
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                               viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                     class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                             d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                    016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                              2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                                        0 018.25 9.75z" />
+                                                             </svg>
+
+                            <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                       
+                            <a href="tel:999" class="btn btn-primary">📞</a>
+                            <span>Call</span>
+                        </button>
+                        <span class="copy-message hidden text-green-500 text-xs absolute -bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                            
+                            <img src="assets/fire-service.png" alt="Fire Service Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                   
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">Fire Service Number</h3>
+                        <p class="text-sm text-gray-500">Fire</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">999</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                           
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-5 h-5">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                         d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                           016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                              2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                              0 018.25 9.75z" />
+                                                              </svg>
+                       <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                           
+                            <a href="tel:999" class="btn btn-primary">📞</a>
+
+                            <span>Call</span>
+                        </button>
+                        <span class="copy-message hidden text-green-500 text-xs absolute -bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                           
+                            <img src="assets/ambulance.png" alt="Ambulance Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                   
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">Ambulance Service Number</h3>
+                        <p class="text-sm text-gray-500">Ambulance</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">1994-9999999</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-5 h-5">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                         d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                           016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                              2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                              0 018.25 9.75z" />
+                                                              </svg>
+                       <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                           
+                            <a href="tel:999" class="btn btn-primary">📞</a>
+
+                            <span>Call</span>
+                        </button>
+                        <span class="copy-message hidden text-green-500 text-xs absolute -bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                            <img src="assets/emergency.png" alt="Fire Service Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                   
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">Woman & Child Helpline</h3>
+                        <p class="text-sm text-gray-500">Woman & Child Helpline</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">109</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                           
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-5 h-5">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                         d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                           016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                              2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                              0 018.25 9.75z" />
+                                                              </svg>
+                       <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                           
+                            <a href="tel:999" class="btn btn-primary">📞</a>
+
+                            <span>Call</span>
+                        </button>
+                        <span class="copy-message hidden text-green-500 text-xs absolute -bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                            
+                            <img src="assets/emergency.png" alt="Anti-Corruption Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                   
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">Anti-Corruption Helpline</h3>
+                        <p class="text-sm text-gray-500">Anti-Corruption</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">106</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                           
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-5 h-5">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                         d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                           016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                              2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                              0 018.25 9.75z" />
+                                                              </svg>
+                       <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                    
+                            <a href="tel:999" class="btn btn-primary">📞</a>
+
+                            <span>Call</span>
+                        </button>
+                        <span class="copy-message hidden text-green-500 text-xs absolute -bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                           
+                            <img src="assets/emergency.png" alt="Electricity Service Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                   
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">Electricity Helpline</h3>
+                        <p class="text-sm text-gray-500">Electricity Outage</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">16216</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-5 h-5">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                         d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                           016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                              2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                              0 018.25 9.75z" />
+                                                              </svg>
+                       <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                           
+                            <a href="tel:999" class="btn btn-primary">📞</a>
+
+                            <span>Call</span>
+                        </button>
+                        <span class="copy-message hidden text-green-500 text-xs absolute -bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+                <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                          
+                            <img src="assets/emergency.png" alt="Brac Service Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                   
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">Brac Helpline</h3>
+                        <p class="text-sm text-gray-500">Brac</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">16445</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                          
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-5 h-5">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                         d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                           016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                              2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                              0 018.25 9.75z" />
+                                                              </svg>
+                       <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                            
+                            <a href="tel:999" class="btn btn-primary">📞</a>
+
+                            <span>Call</span>
+                        </button>
+                        <span class="copy-message hidden text-green-500 text-xs absolute -bottom-6 left-1/2 -translate-x-1/2 transition-opacity duration-300">Copied!</span>
+                    </div>
+                </div>
+               
+                            <div class="bg-gray-100 p-5 rounded-xl shadow-lg flex flex-col space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="p-2 rounded-full bg-gray-200">
+                          
+                            <img src="assets/emergency.png" alt="Bangladesh Railway Service Icon" class="w-6 h-6 rounded-full">
+                        </div>
+                   
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-black">Bangladesh Railway Helpline</h3>
+                        <p class="text-sm text-gray-500">Fire</p>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-black">163</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-auto relative">
+                        <button class="flex-1 bg-gray-200 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-gray-300 transition" onclick="copyNumber('999')">
+                          
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-5 h-5">
+                                              <path stroke-linecap="round" stroke-linejoin="round"
+                                                         d="M8 16.5h-1.5A2.25 2.25 0 014.25 14.25v-9A2.25 2.25 0
+                                                           016.5 3h9A2.25 2.25 0 0117.25 5.25V6M8.25 9.75h9A2.25
+                                                                2.25 0 0119.5 12v6.75a2.25 2.25 0 01-2.25
+                                                              2.25h-9a2.25 2.25 0 01-2.25-2.25v-6.75A2.25 2.25
+                                                              0 018.25 9.75z" />
+                                                              </svg>
+                       <span>Copy</span>
+                        </button>
+                        <button class="flex-1 bg-[#14C179] text-white p-3 rounded-lg flex items-center justify-center space-x-2 text-sm font-medium hover:bg-[#12a366] transition" onclick="showCallConfirmation('999')">
+                        
+                            <a href="tel:999" class="btn btn-primary">📞</a>
+
+                            <span>Call</span>
+                        </button> 
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:col-span-1 h-fit bg-[#f9f9f9] rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+            <div class="flex items-center justify-between p-4 border-b border-gray-200">
+                <h1 class="text-xl font-semibold text-gray-800 flex items-center">
+                    <span class="text-2xl mr-2">🕒</span>
+                    Call History
+                </h1>
+                <button id="clearButton" class="px-4 py-1.5 text-sm font-medium text-white bg-green-500 hover:bg-green-600 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2" onclick="clearCallHistory()">
+                    Clear
+                </button>
+            </div>
+            <div id="callHistoryList" class="p-4 space-y-3">
+                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-150">
+                    <div>
+                        <div class="text-sm font-medium text-gray-800">Fire Service Number</div>
+                        <div class="text-xs text-gray-500">999</div>
+                    </div>
+                    <div class="text-xs text-gray-500">11:36:58 AM</div>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-150">
+                    <div>
+                        <div class="text-sm font-medium text-gray-800">National Emergency Number</div>
+                        <div class="text-xs text-gray-500">1994-999999</div>
+                    </div>
+                    <div class="text-xs text-gray-500">11:36:58 AM</div>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-150">
+                    <div>
+                        <div class="text-sm font-medium text-gray-800">Fire Service Number</div>
+                        <div class="text-xs text-gray-500">999</div>
+                    </div>
+                    <div class="text-xs text-gray-500">11:36:58 AM</div>
+                </div>
+                 <div class="flex items-center justify-between p-3 rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-150">
+                    <div>
+                        <div class="text-sm font-medium text-gray-800">Bangladesh Railway Helpline</div>
+                        <div class="text-xs text-gray-500">999</div>
+                    </div>
+                    <div class="text-xs text-gray-500">11:36:58 AM</div>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-150">
+                    <div>
+                        <div class="text-sm font-medium text-gray-800">Fire Service Number</div>
+                        <div class="text-xs text-gray-500">999</div>
+                    </div>
+                    <div class="text-xs text-gray-500">11:36:58 AM</div>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-150">
+                    <div>
+                        <div class="text-sm font-medium text-gray-800">Anti-Corruption Helpline</div>
+                        <div class="text-xs text-gray-500">999</div>
+                    </div>
+                    <div class="text-xs text-gray-500">11:36:58 AM</div>
+                </div>
+                <div id="emptyState" class="hidden text-center text-gray-400 p-4">
+                    No recent calls.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+      
+        async function copyNumber(button, number) {
+            try {
+                await navigator.clipboard.writeText(number);
+                const message = button.parentElement.querySelector('.copy-message');
+                message.classList.add('show');
+                setTimeout(() => {
+                    message.classList.remove('show');
+                }, 1500);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+        }
+
+        
+        function addCallToHistory(serviceName, number) {
+            const callHistoryList = document.getElementById('callHistoryList');
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+            const newCallItem = document.createElement('div');
+            newCallItem.className = 'flex items-center justify-between p-3 rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-150';
+            newCallItem.innerHTML = `
+                <div>
+                    <div class="text-sm font-medium text-gray-800">${serviceName}</div>
+                    <div class="text-xs text-gray-500">${number}</div>
+                </div>
+                <div class="text-xs text-gray-500">${timeString}</div>
+            `;
+
+          
+            callHistoryList.prepend(newCallItem);
+
+           
+            const emptyState = document.getElementById('emptyState');
+            if (emptyState) {
+                emptyState.classList.add('hidden');
+            }
+        }
+
+        
+        function clearCallHistory() {
+            const callHistoryList = document.getElementById('callHistoryList');
+            // Remove all children except the 'emptyState' div
+            while (callHistoryList.firstChild) {
+                const child = callHistoryList.firstChild;
+                if (child.id !== 'emptyState') {
+                    callHistoryList.removeChild(child);
+                } else {
+                    child.classList.remove('hidden');
+                }
+            }
+        }
+
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const callHistoryList = document.getElementById('callHistoryList');
+            // Get all div children that are not the emptyState div
+            const callItems = Array.from(callHistoryList.children).filter(child => child.id !== 'emptyState');
+            if (callItems.length === 0) {
+                document.getElementById('emptyState').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
